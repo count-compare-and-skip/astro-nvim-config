@@ -4,7 +4,7 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
-  "nvimtools/none-ls.nvim",
+  "astrolsp/none-ls.nvim",
   opts = function(_, opts)
     -- opts variable is the default configuration table for the setup function call
     -- local null_ls = require "null-ls"
@@ -17,7 +17,8 @@ return {
     -- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
     opts.sources = require("astrocore").list_insert_unique(opts.sources, {
       -- Set a formatter
-      -- null_ls.builtins.formatting.stylua,
+      null_ls.builtins.formatting.clang_tidy,
+      null_ls.builtins.formatting.clang_format,
       -- null_ls.builtins.formatting.prettier,
     })
   end,
